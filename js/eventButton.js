@@ -10,7 +10,6 @@ const location = document.querySelector("#eventTitle");
 const note = document.querySelector("#eventTitle");
 const price = document.querySelector("#eventTitle");
 const reservation = document.querySelector("#eventTitle");
-const trip = document.querySelector("#eventTitle");
 
 const eventForm = document.querySelector("#eventForm");
 
