@@ -3,6 +3,7 @@ const tripButton = document.querySelector("#trip-button");
 const submitButton = document.querySelector("#trip-submit-button");
 const title = document.querySelector("#tripTitle");
 const tripForm = document.querySelector("#tripForm");
+const tripContainer = document.querySelector("#tripContainer");
 
 const tripList = [];
 
@@ -29,8 +30,16 @@ function tripFormSubmit(event) {
 }
 
 function displayTrip() {
-    
+    for (const trip of tripList) {
+        const tripblock = document.createElement("div");
+        const triptitle = document.createElement("h2");
+        tripContainer.appendChild(tripblock);
+        tripblock.appendChild(triptitle);
+        tripblock.style.backgroundImage = `./assets/img/background-img${getImageNumber(trip)}`;
+        triptitle.textContent = trip;
+    }
 }
 
 tripButton.addEventListener("click", tripForm);
 submitButton.addEventListener("click", tripFormSubmit);
+displayTrip();
