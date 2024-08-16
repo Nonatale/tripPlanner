@@ -1,0 +1,15 @@
+header {
+    background-color: #b0aef6ee; /* Light blue color */
+    padding: 1rem; /* Add padding */
+}
+header h1 {
+    margin-bottom: 0.5rem; /* Space below the heading */
+}
+header nav a {
+    margin: 0 0.5rem; /* Space between links */
+    color: #0f1a26; /* Bootstrap primary color */
+    text-decoration: none; /* Remove underline */
+}
+header nav a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
