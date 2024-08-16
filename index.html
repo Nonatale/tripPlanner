@@ -20,42 +20,56 @@
     <!--incorporate flex and btn class to implement boot strap stylings to header/nav-->
     <header class="d-flex justify-content-between align-items-center">
         <h3>NSSKRFYG</h3>
-        <nav>
+        <nav class="nav">
             <a href="#Home" class="btn btn-link">Home</a>
             <a href="#Trips" class="btn btn-link">Trips</a>
             <a href="#Contact" class="btn btn-link">Contact</a>
         </nav>
     </header>
 
-    <div class="tripButton">
 
-        <button class="addTrip" class="buttonClick2()">Add Trip</button>
-    </div>
-
-    <div id="form" class="formContainer">
-        <input type="text" id="formInput" class="input-field" placeholder="Enter your response">
-        <button class="submit-button" onclick="submitForm()">Submit</button>
-    </div>
-    <section class="tripSection" id="Trips">
-
-        <h2>Trips</h2>
-        <div class="flex-container">
-            <a href="#" class="tripList">
-                <section class="Date" id="Date"></section>
-                <section class="Time" id="Time"></section>
-                <section class="Location" id="Location"></section>
+    <main class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <button class="addTrip btn btn-primary mt-4 mt-4">Add Trip</button>
+            </div>
         </div>
 
-        <div class="eventButton">
-            <button class="addEvent" class="buttonClick2()">Add Event</button>
+        <div class="row mt-5">
+            <div class="col">
+                <div id="form" class="formContainer">
+                    <input type="text" id="formInput" class="input-field" placeholder="Enter your response">
+                    <button class="submit-button btn btn-warning" onclick="submitForm()">Submit</button>
+                </div>
+            </div>
         </div>
-        <section class="Event-section" id="Events">
 
+        <section class="tripSection row mt-5" id="Trips">
 
+            <h2>Trips</h2>
+            <div class="d-grid gap-3">
+                <a href="#" class="tripList">
+                    <section class="Date" id="Date"></section>
+                    <section class="Time" id="Time"></section>
+                    <section class="Location" id="Location"></section>
+            </div>
 
+            <!-- <div class="eventButton"--this event button was moved to event.html-->
+            <!-- <button class="addEvent" class="buttonClick2()">Add Event</button>
+            </div> -->
             <section class="Event-section" id="Events">
 
 
+
+                <section class="Event-section" id="Events">
+
+
+                </section>
+
             </section>
 
-        </section>
+    </main>
+
+</body>
+
+</html>
