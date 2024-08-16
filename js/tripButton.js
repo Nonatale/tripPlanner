@@ -28,5 +28,9 @@ function tripFormSubmit(event) {
     
 }
 
+function displayTrip() {
+    
+}
+
 tripButton.addEventListener("click", tripForm);
 submitButton.addEventListener("click", tripFormSubmit);

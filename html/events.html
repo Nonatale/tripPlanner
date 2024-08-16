@@ -16,7 +16,7 @@
 
 <body>
 
-    <form>
+    <form id="eventForm hidden">
 
         <label for="title">Title</label>
         <input id="eventTitle" type="text" />
@@ -28,19 +28,16 @@
         <input type="time" id="time" name="time"><br><br>
 
         <label for="location">Title</label>
-        <input id="location" type="text" />
+        <input type="text" id="location" />
 
         <label for="note">Title</label>
-        <input id="note" type="text" />
+        <textarea id="note"></textarea>
 
         <label for="price">Title</label>
-        <input id="price" type="text" />
+        <input type="number" id="price" min="0" step="0.01" />
 
         <label for="reservation">Title</label>
-        <input id="reservation" type="text" />
-
-        <label for="trip">Title</label>
-        <input id="trip" type="text" />
+        <input type="checkbox" id="reservation" />
 
         <input type="submit" value="Submit">
 
