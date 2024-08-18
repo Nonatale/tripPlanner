@@ -1,9 +1,9 @@
 
-const eventButton = document.querySelector("#event-button");
-const submitButton = document.querySelector("#event-submit-button");
+const activityButton = document.querySelector("#activity-button");
+const submitButton = document.querySelector("#activity-submit-button");
 
 // Form entry data
-const title = document.querySelector("#eventTitle");
+const title = document.querySelector("#activityTitle");
 const date = document.querySelector("#date");
 const time = document.querySelector("#time");
 const location = document.querySelector("#location");
@@ -11,28 +11,28 @@ const note = document.querySelector("#note");
 const price = document.querySelector("#price");
 const reservation = document.querySelector("#reservation");
 
-const eventForm = document.querySelector("#eventForm");
+const activityForm = document.querySelector("#activityForm");
 
-const eventList = [];
+const activityList = [];
 
-// Unhides the event form upon button click
-function eventForm(event) {
+// Unhides the activity form upon button click
+function activityForm(event) {
     event.preventDefault();
-    if (eventForm.classList.contains('hidden')) {
-        eventForm.classList.remove("hidden");
+    if (activityForm.classList.contains('hidden')) {
+        activityForm.classList.remove("hidden");
     } else {
-        eventForm.classList.add("hidden");
+        activityForm.classList.add("hidden");
     }
 }
 
-// Submits new event element to the local storage upon button click
-function eventFormSubmit(event) {
+// Submits new activity element to the local storage upon button click
+function activityFormSubmit(event) {
     event.preventDefault();
 
     // Proceeds if required data is not empty. Otherwise, prints error message
     if (ifEmptyData(title, date, time, location)) {
 
-        const event = {
+        const activity = {
             title: title.value.trim(),
             date: date.value.trim(),
             time: time.value.trim(),
@@ -49,29 +49,31 @@ function eventFormSubmit(event) {
             trip: currTrip
         }
 
-
-        // Adds new event name to js event array
-        eventList.push(event);
-        // Adds new event list to local storage
-        localStorage.setItem("eventList", JSON.stringify(eventList));
+        // Adds new activity name to js activity array
+        updateActivityList(activity);
+        // Adds new activity list to local storage
+        localStorage.setItem("activityList", JSON.stringify(activityList));
         // Hides form after successful submission
-        eventForm.classList.add("hidden");
+        activityForm.classList.add("hidden");
     } else {
-        eventFormError();
+        activityFormError();
     }
+}
+
+function updateActivityList(event) {
     
 }
 
-function eventFormError() {
+function activityFormError() {
 
 }
 
-function displayEvents() {
+function displayActivities() {
     const tripList = JSON.parse(localStorage.getItem("tripList"));
     const currTrip = localStorage.getItem("currTrip");
 
 }
 
-eventButton.addEventListener("click", eventForm);
-submitButton.addEventListener("click", eventFormSubmit);
-document.addEventListener("DOMContentLoaded", displayEvents);
+activityButton.addEventListener("click", activityForm);
+submitButton.addEventListener("click", activityFormSubmit);
+document.addEventListener("DOMContentLoaded", displayActivities);

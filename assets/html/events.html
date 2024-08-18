@@ -29,33 +29,37 @@
     </nav>
   </header>
 
-  <form class="container-fluid mt-5 position">
+  <main>
     
 
-    <label for="title">Title</label>
-    <input id="eventTitle" type="text" />
+    <form class="container-fluid mt-5 position">
+    
+      <label for="title">Title</label>
+      <input id="eventTitle" type="text" />
+  
+      <label for="date">Select a Date:</label>
+      <input type="date" id="date" name="date"><br><br>
+  
+      <label for="time">Select a Time:</label>
+      <input type="time" id="time" name="time"><br><br>
+  
+      <label for="location">Title</label>
+      <input type="text" id="location" />
+  
+      <label for="note">Title</label>
+      <textarea id="note"></textarea>
+  
+      <label for="price">Title</label>
+      <input type="number" id="price" min="0" step="0.01" />
+  
+      <label for="reservation">Title</label>
+      <input type="checkbox" id="reservation" />
+  
+      <input type="submit" class="btn btn-warning" value="Submit">
+     
+    </form>
 
-    <label for="date">Select a Date:</label>
-    <input type="date" id="date" name="date"><br><br>
-
-    <label for="time">Select a Time:</label>
-    <input type="time" id="time" name="time"><br><br>
-
-    <label for="location">Title</label>
-    <input type="text" id="location" />
-
-    <label for="note">Title</label>
-    <textarea id="note"></textarea>
-
-    <label for="price">Title</label>
-    <input type="number" id="price" min="0" step="0.01" />
-
-    <label for="reservation">Title</label>
-    <input type="checkbox" id="reservation" />
-
-    <input type="submit" class="btn btn-warning" value="Submit">
-   
-  </form>
+  </main>
 
 </body>
 

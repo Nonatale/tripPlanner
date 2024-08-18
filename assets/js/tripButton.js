@@ -29,8 +29,13 @@ function tripFormSubmit(event) {
 
     // Only proceeds if entry is not empty. Otherwise, nothing happens
     if (title.value.length !== 0) {
-        // Adds new trip name to js trip array
-        tripList.push(title.value.trim());
+        // Creates new trip object: name and empty activity list
+        const trip = {
+            name: title.value.trim(),
+            activity: []
+        }
+
+        tripList.push(trip);
         // Adds new trip list to local storage
         localStorage.setItem("tripList", JSON.stringify(tripList));
         // Hides form after successful submission
@@ -43,23 +48,23 @@ function tripFormSubmit(event) {
 
 // Adds html elements of the trip to the page and give it a background img
 function displayTrip() {
-
+    tripContainer.innerHTML = "";
     for (const trip of tripList) {
         const tripblock = document.createElement("div");
         const triptitle = document.createElement("h2");
         //tripblock.style.backgroundImage = `./assets/img/background-img${getImageNumber(trip)}`;
-        triptitle.textContent = trip;
+        triptitle.textContent = trip.name;
         tripContainer.appendChild(tripblock);
         tripblock.appendChild(triptitle);
         // Adds clickable event to the images and redirects page when clicked
-        tripContainer.addEventListener("click", (event) => redirEventPage(event, trip));
+        tripContainer.addEventListener("click", (event) => redirEventPage(event, trip.name));
     }
 }
 
-function redirEventPage (event, trip) {
+function redirEventPage (event, tripName) {
     event.preventDefault();
 
-    localStorage.setItem("currTrip", trip);
+    localStorage.setItem("currTrip", tripName);
     redirectPage("./assets/html/events.html");
 }
 
