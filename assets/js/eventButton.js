@@ -32,10 +32,26 @@ function eventFormSubmit(event) {
     // Proceeds if required data is not empty. Otherwise, prints error message
     if (ifEmptyData(title, date, time, location)) {
 
+        const event = {
+            title: title.value.trim(),
+            date: date.value.trim(),
+            time: time.value.trim(),
+            location: location.value.trim(),
+            note: function() {
+                return note.value ? note.value.trim() : undefined;
+            },
+            price: function() {
+                return price.value ? price.value.trim() : undefined;
+            },
+            reservation: function() {
+                return reservation.value ? reservation.value.trim() : undefined;
+            },
+            trip: currTrip
+        }
 
 
         // Adds new event name to js event array
-        eventList.push(title.value.trim());
+        eventList.push(event);
         // Adds new event list to local storage
         localStorage.setItem("eventList", JSON.stringify(eventList));
         // Hides form after successful submission
@@ -47,7 +63,7 @@ function eventFormSubmit(event) {
 }
 
 function eventFormError() {
-    
+
 }
 
 function displayEvents() {
