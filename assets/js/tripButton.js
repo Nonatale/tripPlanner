@@ -12,7 +12,7 @@ function initTripList() {
     return localTripList ? JSON.parse(localTripList) : [];
 }
 
-// Unhides the trip form upon button click
+// Unhides/hides the trip form upon button click
 function tripFormClick(event) {
     event.preventDefault();
     if (tripForm.classList.contains('hidden')) {
@@ -26,9 +26,9 @@ function tripFormClick(event) {
 // Submits new trip element to the local storage upon button click
 function tripFormSubmit(event) {
     event.preventDefault();
-
+    console.log(title);
     // Only proceeds if entry is not empty. Otherwise, nothing happens
-    if (title) {
+    if (title.value.length !== 0) {
         // Adds new trip name to js trip array
         tripList.push(title.value.trim());
         // Adds new trip list to local storage
@@ -60,7 +60,7 @@ function redirEventPage (event, trip) {
     event.preventDefault();
 
     localStorage.setItem("currTrip", trip);
-    redirectPage("./html/events.html");
+    redirectPage("./assets/html/events.html");
 }
 
 tripButton.addEventListener("click", tripFormClick);
