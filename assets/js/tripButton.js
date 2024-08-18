@@ -15,7 +15,7 @@ function initTripList() {
 // Unhides/hides the trip form upon button click
 function tripFormClick(event) {
     event.preventDefault();
-    if (tripForm.classList.contains('hidden')) {
+    if (tripForm.classList.contains("hidden")) {
         tripForm.classList.remove("hidden");
     } else {
         tripForm.classList.add("hidden");
