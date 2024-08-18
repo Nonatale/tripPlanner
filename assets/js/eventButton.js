@@ -26,7 +26,7 @@ function eventFormSubmit(event) {
     event.preventDefault();
 
     // Only proceeds if entry is not empty. Otherwise, nothing happens
-    if (!title) {
+    if (title) {
         // Adds new event name to js event array
         eventList.push(title.value.trim());
         // Adds new event list to local storage
@@ -37,5 +37,12 @@ function eventFormSubmit(event) {
     
 }
 
+function displayEvents() {
+    const tripList = JSON.parse(localStorage.getItem("tripList"));
+    const currTrip = localStorage.getItem("currTrip");
+
+}
+
 eventButton.addEventListener("click", eventForm);
 submitButton.addEventListener("click", eventFormSubmit);
+document.addEventListener("DOMContentLoaded", displayEvents);
