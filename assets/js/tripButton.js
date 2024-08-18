@@ -51,19 +51,23 @@ function displayTrip() {
     tripContainer.innerHTML = "";
     for (const trip of tripList) {
         const tripblock = document.createElement("div");
+        tripblock.classList.add("trip-block");
         const triptitle = document.createElement("h2");
         //tripblock.style.backgroundImage = `./assets/img/background-img${getImageNumber(trip)}`;
         triptitle.textContent = trip.name;
+
         tripContainer.appendChild(tripblock);
         tripblock.appendChild(triptitle);
         // Adds clickable event to the images and redirects page when clicked
-        tripContainer.addEventListener("click", (event) => redirEventPage(event, trip.name));
+        tripblock.addEventListener("click", (event) => {
+            redirEventPage(event, trip.name)
+        });
     }
 }
 
 function redirEventPage (event, tripName) {
     event.preventDefault();
-
+    console.log(tripName);
     localStorage.setItem("currTrip", tripName);
     redirectPage("./assets/html/events.html");
 }

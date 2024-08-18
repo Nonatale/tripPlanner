@@ -16,8 +16,9 @@ function getWeekday (date) {
 }
 
 function ifEmptyData(...entry) {
+  console.log(entry);
   for (const data of entry) {
-    if (data.value.length === 0) {
+    if (!data || data.value.length === 0) {
       return false;
     }
   }
