@@ -18,22 +18,35 @@ const eventList = [];
 // Unhides the event form upon button click
 function eventForm(event) {
     event.preventDefault();
-    eventForm.classList.remove("hidden");
+    if (eventForm.classList.contains('hidden')) {
+        eventForm.classList.remove("hidden");
+    } else {
+        eventForm.classList.add("hidden");
+    }
 }
 
 // Submits new event element to the local storage upon button click
 function eventFormSubmit(event) {
     event.preventDefault();
 
-    // Only proceeds if entry is not empty. Otherwise, nothing happens
-    if (title) {
+    // Proceeds if required data is not empty. Otherwise, prints error message
+    if (ifEmptyData(title, date, time, location)) {
+
+
+
         // Adds new event name to js event array
         eventList.push(title.value.trim());
         // Adds new event list to local storage
         localStorage.setItem("eventList", JSON.stringify(eventList));
         // Hides form after successful submission
         eventForm.classList.add("hidden");
+    } else {
+        eventFormError();
     }
+    
+}
+
+function eventFormError() {
     
 }
 
