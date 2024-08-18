@@ -14,3 +14,12 @@ function getWeekday (date) {
   return weekdayName;
 
 }
+
+function ifEmptyData(...entry) {
+  for (const data of entry) {
+    if (data.value.length === 0) {
+      return false;
+    }
+  }
+  return true;
+}

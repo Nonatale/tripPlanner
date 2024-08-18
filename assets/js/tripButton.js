@@ -26,7 +26,7 @@ function tripFormClick(event) {
 // Submits new trip element to the local storage upon button click
 function tripFormSubmit(event) {
     event.preventDefault();
-    console.log(title);
+
     // Only proceeds if entry is not empty. Otherwise, nothing happens
     if (title.value.length !== 0) {
         // Adds new trip name to js trip array
@@ -43,7 +43,7 @@ function tripFormSubmit(event) {
 
 // Adds html elements of the trip to the page and give it a background img
 function displayTrip() {
-    console.log(tripList);
+
     for (const trip of tripList) {
         const tripblock = document.createElement("div");
         const triptitle = document.createElement("h2");
