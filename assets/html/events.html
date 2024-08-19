@@ -46,39 +46,44 @@
     </div>
   </nav>
 
-<main>
-  <div class="row">
-    <div class="col">
-      <button class="addEvent btn btn-primary mt-4" id="event-button">Add Event </button>
+  <main>
+    <div class="row">
+      <div class="col">
+          <button class="addTrip btn btn-primary mt-4" id="activity-button">Add Event</button>
+      </div>
     </div>
-  </div>
 
-  <form class="container-fluid mt-5 position hidden" id="eventForm">
+    <div class="hidden" id="activityForm">
 
-    <label for="title">Title</label>
-    <input id="eventTitle" type="text" />
-
-    <label for="date">Select a Date:</label>
-    <input type="date" id="date" name="date"><br><br>
-
-    <label for="time">Select a Time:</label>
-    <input type="time" id="time" name="time"><br><br>
-
-    <label for="location">Title</label>
-    <input type="text" id="location" />
-
-    <label for="note">Title</label>
-    <textarea id="note"></textarea>
-
-    <label for="price">Title</label>
-    <input type="number" id="price" min="0" step="0.01" />
-
-    <label for="reservation">Title</label>
-    <input type="checkbox" id="reservation" />
-
-    <input type="submit" class="btn btn-warning" value="Submit">
-
-  </form>
+      <form class="container-fluid mt-5 position">
+      
+        <label for="title">Title</label>
+        <input id="activityTitle" type="text" />
+    
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+    
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time"><br><br>
+    
+        <label for="place">Place</label>
+        <input type="text" id="place" />
+    
+        <label for="note">Note</label>
+        <textarea id="note"></textarea>
+    
+        <label for="price">Price</label>
+        <input type="number" id="price" min="0" step="0.01" />
+    
+        <label for="reservation">Reservation</label>
+        <input type="checkbox" id="reservation" />
+    
+        <input type="submit" class="btn btn-warning" id="activity-submit-button" value="Submit">
+      
+      </form>
+            
+    </div>
+  </main>
 
 </main>
 
