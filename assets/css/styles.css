@@ -38,3 +38,8 @@ header nav a {
 header nav a:hover {
     text-decoration: underline; /* Underline on hover */
 }
+
+nav {
+    background-color: #b0aef6ee; /* Light blue color */
+    padding: 1rem; /* Add padding */
+}
