@@ -1,0 +1,45 @@
+.hidden {
+    display: none;
+}
+
+:root {
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-black: #000;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bg-teal: #20c997;
+    --bs-body-bg:#99eeec;
+}
+
+header {
+    background-color: #b0aef6ee; /* Light blue color */
+    padding: 1rem; /* Add padding */
+}
+
+header h1 {
+    margin-bottom: 0.5rem; /* Space below the heading */
+}
+
+header nav a {
+    margin: 0 0.5rem; /* Space between links */
+    color: #0f1a26; /* Bootstrap primary color */
+    text-decoration: none; /* Remove underline */
+}
+
+header nav a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+nav {
+    background-color: #b0aef6ee; /* Light blue color */
+    padding: 1rem; /* Add padding */
+}
