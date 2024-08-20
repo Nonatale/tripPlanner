@@ -73,4 +73,47 @@ h3 {
 
 #label {
     display: block;
+    background-color: #b0aef6ee; /* Light blue color */
+    padding: 1rem; /* Add padding */
+}
+
+.background{
+    position: absolute;
+    padding: 0;
+    margin: 0;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    
+    border: 10px solid; 
+}
+.img-container{
+    width: 100%;
+    display: flex;
+    animation: slide 20s ease-in-out infinite;
+    background-size: cover;
+}
+.wrapper{
+    width: 100%;
+}
+img{
+    width: 100%;
+}
+
+@keyframes slide{
+    0%,100%{
+        background-image: url(https://media.9news.com/assets/KUSA/images/7f6e78a1-dd06-48e2-85b2-6e35a08d6832/7f6e78a1-dd06-48e2-85b2-6e35a08d6832_1140x641.jpg);
+    }
+    25%{
+        background-image: url(https://cdn.aarp.net/content/dam/aarp/travel/Domestic/2021/12/1140-oahu-hero.jpg);
+    }
+    50%{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT78NCXBn45EBPyNn3zfSjQe9kCxwiddFkH2A&s);
+    }
+    75%{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR1D45iBVsNs0SCKLbS2NwDW_2elEzF74vsQ&s);
+    }
 }
