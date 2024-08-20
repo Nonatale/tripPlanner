@@ -38,8 +38,6 @@ function activityFormSubmit(event) {
             time: time.value.trim(),
             place: place.value.trim(),
             note: note.value ? note.value.trim() : undefined,
-            price: price.value ? price.value.trim() : undefined,
-            reservation: reservation.value ? reservation.value.trim() : undefined,
             trip: localStorage.getItem("currTrip")
         }
 
@@ -56,8 +54,8 @@ function updateActivityList(activity) {
     const tripIndex = getTripIndex(currTrip);
     const tripList = JSON.parse(localStorage.getItem("tripList"));
     tripList[tripIndex].activity.push(activity);
-    localStorage.setItem("tripList", JSON.stringify(tripList));
     sortActivities(currTrip);
+    localStorage.setItem("tripList", JSON.stringify(tripList));
 }
 
 // Searches for a trip name in the local storage and returns the index of that trip
@@ -107,12 +105,35 @@ function sortActivities(tripName) {
 }
 
 function activityFormError() {
-    console.log("Required data is Empty.");
+    const errorMsg = document.createElement("p");
+    errorMsg.classList.add("error");
+    errorMsg.textContent = "Required data is Empty. Required input: Title, Date, Time, Place.";
+    activityForm.appendChild(errorMsg);
 }
 
 function displayActivities() {
     const tripList = JSON.parse(localStorage.getItem("tripList"));
-    const currTrip = localStorage.getItem("currTrip");
+    const tripIndex = getTripIndex(localStorage.getItem("currTrip"));
+    const trip = tripList[tripIndex];
+    // Display Logic
+    let currDate;
+    let activityIndex = 0;
+    // Loops through 
+    while (trip.activity[activityIndex]) {
+        if (!currDate || currDate !== activity.date) {
+            const dayBox = document.createElement("section");
+            const dateBox = document.createElement("div");
+            const infoBox = document.createElement("div");
+            dayBox.classList.add("day-box");
+            dateBox.classList.add("date-box");
+            infoBox.classList.add("info-box");
+            eventBox.appendChild(dayBox);
+            dayBox.appendChild(dateBox);
+            dayBox.appendChild(infoBox);
+        }
+        activityIndex++;
+    }
+
 
 }
 

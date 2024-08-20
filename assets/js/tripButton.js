@@ -42,6 +42,8 @@ function tripFormSubmit(event) {
         tripForm.classList.add("hidden");
 
         displayTrip();
+    } else {
+        tripFormError();
     }
     
 }
@@ -70,6 +72,13 @@ container.appendChild(newImage);
 function displayBackgroundImage(many){
     var arr = randomImages
 } 
+
+function tripFormError() {
+    const errorMsg = document.createElement("p");
+    errorMsg.classList.add("error");
+    errorMsg.textContent = "Please enter a trip name.";
+    tripForm.appendChild(errorMsg);
+}
 
 // Adds html elements of the trip to the page and give it a background img
 function displayTrip() {
