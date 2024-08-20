@@ -1,3 +1,11 @@
+* {
+    background-color: none;
+    font-family: "Reddit Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
 .hidden {
     display: none;
 }
@@ -17,11 +25,12 @@
     --bs-white: #fff;
     --bs-gray: #6c757d;
     --bg-teal: #20c997;
-    --bs-body-bg:#99eeec;
+    --bs-body-bg: none;
+    --bs-navbar-nav-link-padding-x: 2rem;
 }
 
 header {
-    background-color: #b0aef6ee; /* Light blue color */
+    background-color: #b0aef6ee;  /* Light blue color */
     padding: 1rem; /* Add padding */
 }
 
@@ -30,7 +39,7 @@ header h1 {
 }
 
 header nav a {
-    margin: 0 0.5rem; /* Space between links */
+    margin: 0 3rem; /* Space between links */
     color: #0f1a26; /* Bootstrap primary color */
     text-decoration: none; /* Remove underline */
 }
@@ -40,6 +49,28 @@ header nav a:hover {
 }
 
 nav {
-    background-color: #b0aef6ee; /* Light blue color */
-    padding: 1rem; /* Add padding */
+    padding: 2rem; /* Add padding */
+}
+
+h2 {
+    padding-bottom: 20px;
+}
+
+h3 {
+    position: absolute;
+    bottom: 0;
+}
+
+.trip-block {
+    position: relative;
+    padding: 15px;
+    border: 2px #000000 solid;
+    border-radius: 20px;
+    height: 100px;
+    margin-bottom: 20px;
+    border-bottom-left-radius: 0;
+}
+
+#label {
+    display: block;
 }

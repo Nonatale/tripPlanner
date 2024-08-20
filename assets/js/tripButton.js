@@ -61,7 +61,7 @@ function displayTrip() {
     for (const trip of tripList) {
         const tripblock = document.createElement("div");
         tripblock.classList.add("trip-block");
-        const triptitle = document.createElement("h2");
+        const triptitle = document.createElement("h3");
         //tripblock.style.backgroundImage = `./assets/img/background-img${getImageNumber(trip)}`;
         triptitle.textContent = trip.name;
 

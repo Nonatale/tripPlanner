@@ -15,6 +15,9 @@
     <script defer src="./assets/js/tripButton.js" type="text/javascript"></script>
     <script defer src="./assets/js/img.js" type="text/javascript"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Reddit+Mono:wght@200..900&display=swap" rel="stylesheet">
 
 </head>
 
@@ -25,7 +28,7 @@
 
     <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="./index.html">
                 <img src="./images/reshot-icon-globe-love-M3TW4UDPLF.svg" alt="Logo" width="30" height="24"
                     class="d-inline-block align-text-top">
                 No Worries
@@ -65,6 +68,7 @@
         <div class="row mt-5 hidden" id="tripForm">
             <div class="col">
                 <div class="formContainer">
+                    <label for="tripTitle" id="label">Trip Name</label>
                     <input type="text" id="tripTitle" class="input-field">
                     <button class="submit-button btn btn-warning" id="trip-submit-button">Submit</button>
                 </div>
