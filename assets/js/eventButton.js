@@ -9,6 +9,7 @@ const place = document.querySelector("#place");
 const note = document.querySelector("#note");
 const price = document.querySelector("#price");
 const reservation = document.querySelector("#reservation");
+const eventBox=document.querySelector("#eventBox")
 
 const activityForm = document.querySelector("#activityForm");
 
