@@ -55,8 +55,8 @@ function updateActivityList(activity) {
     const tripIndex = getTripIndex(currTrip);
     const tripList = JSON.parse(localStorage.getItem("tripList"));
     tripList[tripIndex].activity.push(activity);
-    sortActivities(currTrip);
     localStorage.setItem("tripList", JSON.stringify(tripList));
+    sortActivities(currTrip);
 }
 
 // Searches for a trip name in the local storage and returns the index of that trip
@@ -102,6 +102,7 @@ function sortActivities(tripName) {
         }
         return dateComparison;
     })
+    localStorage.setItem("tripList", JSON.stringify(tripList));
     sortTrips();
 }
 
@@ -138,25 +139,24 @@ function displayActivities() {
         activityIndex++;
     }
 
-
 }
 
 activityButton.addEventListener("click", activityFormClick);
 submitButton.addEventListener("click", activityFormSubmit);
 
-function colorChanger() {
-    const squareList = document.querySelector(".activity-square");
-    for (const square of squareList) {
-        square.addEventListener('click', function() {
-            document.getElementById('colorPicker').click();
-        });
-    }
-}
+// function colorChanger() {
+//     const squareList = document.querySelector(".activity-square");
+//     for (const square of squareList) {
+//         square.addEventListener('click', function() {
+//             document.getElementById('colorPicker').click();
+//         });
+//     }
+// }
 
-colorChanger();
+// colorChanger();
 
-document.getElementById('colorPicker').addEventListener('input', function() {
-    document.getElementById('colorSquare').style.backgroundColor = this.value;
-});
+// document.getElementById('colorPicker').addEventListener('input', function() {
+//     document.getElementById('colorSquare').style.backgroundColor = this.value;
+// });
 
 document.addEventListener("DOMContentLoaded", displayActivities);
