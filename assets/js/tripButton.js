@@ -57,15 +57,15 @@ const imageArray = [
 
 ];
 //Grabs random image from image array
-const randomImage = Math.floor(math.random() * imageArray.length);
+const randomImage = Math.floor(Math.random() * imageArray.length);
 
 //Creates a new image element
 const newImage = document.createElement('img');
-newImage.src = imageArray[randomIndex];
+//newImage.src = imageArray[randomIndex];
 newImage.alt = 'randomImage';
 
 //Appened the new image to container
-const container = document.getElementById('imageContainer');
+const container = document.getElementById('img-container');
 container.appendChild(newImage);
 
 //Adds randomly generated background image to trip created by user 
@@ -87,7 +87,7 @@ function displayTrip() {
         const tripblock = document.createElement("div");
         tripblock.classList.add("trip-block");
         const triptitle = document.createElement("h3");
-        //tripblock.style.backgroundImage = `./assets/img/background-img${getImageNumber(trip)}`;
+        tripblock.style.backgroundImage = trip.imgUrl;
         triptitle.textContent = trip.name;
 
         tripContainer.appendChild(tripblock);
