@@ -204,33 +204,26 @@ form input {
     padding-right: 20px;
 }
 
-/* .background{
+.background{
     position: absolute;
     padding: 0;
     margin: 0;
-
     top: 0;
     left: 0;
-
     width: 100%;
-    height: 100%;
-    
-    border: 10px solid; 
+    height: 100vh;
+    background-size: cover;
+    animation: animate 20s ease-in-out infinte;
 }
-.img-container{
+/*.img-container{
     width: 100%;
     display: flex;
     animation: slide 20s ease-in-out infinite;
     background-size: cover;
-}
-.wrapper{
-    width: 100%;
-}
-img{
-    width: 100%;
-} */
+}*/
 
-/* @keyframes slide{
+@keyframes animate{
+
     0%,100%{
         background-image: url(https://media.9news.com/assets/KUSA/images/7f6e78a1-dd06-48e2-85b2-6e35a08d6832/7f6e78a1-dd06-48e2-85b2-6e35a08d6832_1140x641.jpg);
     }
@@ -243,4 +236,4 @@ img{
     75%{
         background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR1D45iBVsNs0SCKLbS2NwDW_2elEzF74vsQ&s);
     }
-} */
+}
