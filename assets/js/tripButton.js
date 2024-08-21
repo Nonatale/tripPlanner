@@ -57,16 +57,16 @@ const imageArray = [
 
 ];
 //Grabs random image from image array
-const randomImage = Math.floor(math.random() * imageArray.length);
+// const randomImage = Math.floor(math.random() * imageArray.length);
 
-//Creates a new image element
-const newImage = document.createElement('img');
-newImage.src = imageArray[randomIndex];
-newImage.alt = 'randomImage';
+// //Creates a new image element
+// const newImage = document.createElement('img');
+// newImage.src = imageArray[randomIndex];
+// newImage.alt = 'randomImage';
 
 //Appened the new image to container
-const container = document.getElementById('imageContainer');
-container.appendChild(newImage);
+// const container = document.getElementById('imageContainer');
+// container.appendChild(newImage);
 
 //Adds randomly generated background image to trip created by user 
 function displayBackgroundImage(many){
