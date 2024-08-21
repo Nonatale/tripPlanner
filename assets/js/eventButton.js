@@ -128,9 +128,12 @@ function displayActivities() {
             dayBox.classList.add("day-box");
             dateBox.classList.add("date-box");
             infoBox.classList.add("info-box");
+            
             eventBox.appendChild(dayBox);
             dayBox.appendChild(dateBox);
             dayBox.appendChild(infoBox);
+        } else {
+
         }
         activityIndex++;
     }
@@ -140,4 +143,20 @@ function displayActivities() {
 
 activityButton.addEventListener("click", activityFormClick);
 submitButton.addEventListener("click", activityFormSubmit);
+
+function colorChanger() {
+    const squareList = document.querySelector(".activity-square");
+    for (const square of squareList) {
+        square.addEventListener('click', function() {
+            document.getElementById('colorPicker').click();
+        });
+    }
+}
+
+colorChanger();
+
+document.getElementById('colorPicker').addEventListener('input', function() {
+    document.getElementById('colorSquare').style.backgroundColor = this.value;
+});
+
 document.addEventListener("DOMContentLoaded", displayActivities);
