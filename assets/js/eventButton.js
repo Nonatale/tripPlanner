@@ -179,6 +179,22 @@ function displayActivities() {
 
 activityButton.addEventListener("click", activityFormClick);
 submitButton.addEventListener("click", activityFormSubmit);
+
+function colorChanger() {
+    const squareList = document.querySelector(".activity-square");
+    for (const square of squareList) {
+        square.addEventListener('click', function() {
+            document.getElementById('colorPicker').click();
+        });
+    }
+}
+
+colorChanger();
+
+document.getElementById('colorPicker').addEventListener('input', function() {
+    document.getElementById('colorSquare').style.backgroundColor = this.value;
+});
+
 document.addEventListener("DOMContentLoaded", displayActivities);
 
 
