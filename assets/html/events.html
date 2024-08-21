@@ -49,37 +49,39 @@
   <main>
     <div class="row">
       <div class="col">
-          <button class="addTrip btn btn-primary mt-4" id="activity-button">Add Event</button>
+        <button class="addTrip btn btn-primary mt-4" id="activity-button">Add Event</button>
       </div>
     </div>
 
     <div class="hidden" id="activityForm">
 
       <form class="container-fluid mt-5 position">
-      
+
         <label for="title">Title</label>
         <input id="activityTitle" type="text" />
-    
+
         <label for="date">Date:</label>
         <input type="date" id="date" name="date">
-    
+
         <label for="time">Time:</label>
         <input type="time" id="time" name="time"><br><br>
-    
+
         <label for="place">Place</label>
         <input type="text" id="place" />
-    
+
         <label for="note">Note</label>
         <textarea id="note"></textarea>
-    
+
         <input type="submit" class="btn btn-warning" id="activity-submit-button" value="Submit">
-      
+
       </form>
-            
+      
+      <div id="eventBox"> </div>
+
     </div>
   </main>
 
-</main>
+  </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
