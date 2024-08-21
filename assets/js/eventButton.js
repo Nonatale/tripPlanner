@@ -9,7 +9,6 @@ const place = document.querySelector("#place");
 const note = document.querySelector("#note");
 const price = document.querySelector("#price");
 const reservation = document.querySelector("#reservation");
-const eventBox = document.querySelector("#eventBox");
 
 const activityForm = document.querySelector("#activityForm");
 
@@ -33,14 +32,29 @@ function activityFormSubmit(event) {
     // Proceeds if required data is not empty. Otherwise, prints error message
     if (ifEmptyData(title, date, time, place)) {
 
-       
+        const activity = {
+            title: title.value.trim(),
+            date: date.value.trim(),
+            time: time.value.trim(),
+            place: place.value.trim(),
+            note: note.value ? note.value.trim() : undefined,
+            trip: localStorage.getItem("currTrip")
+        }
+
         updateActivityList(activity);
 
         activityForm.classList.add("hidden");
+        displayActivities();
+
+        title.value = "";
+        date.value = "";
+        time.value = "";
+        place.value = "";
+        note.value = "";
+
     } else {
         activityFormError();
     }
-
 }
 
 // Adds new activity to a trip and then sorts the events and trips
@@ -105,96 +119,70 @@ function activityFormError() {
     activityForm.appendChild(errorMsg);
 }
 
-const activity = {
-    title: title.value.trim(),
-    date: date.value.trim(),
-    time: time.value.trim(),
-    place: place.value.trim(),
-    note: note.value ? note.value.trim() : undefined,
-    trip: localStorage.getItem("currTrip")
-}
-
-
 function displayActivities() {
     const tripList = JSON.parse(localStorage.getItem("tripList"));
     const tripIndex = getTripIndex(localStorage.getItem("currTrip"));
     const trip = tripList[tripIndex];
-    // Display Logic
-    // let currDate;
-    let activityIndex = 0;
-    // Loops through 
+    console.log(trip);
+
+    const activities = trip.activity;
     eventBox.innerHTML = "";
-    // while (trip.activity[activityIndex]) {
-    //     if (!currDate || currDate !== activity.date) {
-            const dayBox = document.createElement("section");
-            const dateBox = document.createElement("div");
-            const dayAndDate=document.createElement("h4");
-            const infoBox = document.createElement("div");
-            const timeBox=document.createElement("time-box")
-            const time=document.createElement("h4");
-            const iconBox=document.createElement("div");
-            const activitySquare=document.createElement("div");
-            //do i need to add for activity square input type, etc?
-            const activityBox=document.createElement("div");
-            const titleBox=document.createElement("div");
-            const event=document.createElement("h4");
-            const location=document.createElement("h5");
-            const noteBox=document.createElement("div");
-            const deleteBox=document.createElement("div");
-            dayBox.classList.add("day-box");
-            dateBox.classList.add("date-box");
-            infoBox.classList.add("info-box");
-            timeBox.classList.add("time-box");
-            iconBox.classList.add("icon-box");
-            activitySquare.classList.add("activity-square");
-            activityBox.classList.add("activity-box");
-            titleBox.classList.add("title-box");
-            noteBox.classList.add("note-box");
-            deleateBox.classList.add("delete-box");
-            eventBox.appendChild(dayBox);
-            dayBox.appendChild(dateBox);
-            dateBox.appendChild(dayAndDate); 
-            dayBox.appendChild(infoBox);
-            infoBox.appendChild(timeBox);
-            timeBox.appendChild(time);
-            infoBox.appendChild(iconBox);
-            iconBox.appendChild(activitySquare);
-            infoBox.appendChild(activityBox);
-            activityBox.appendChild(titleBox);
-            titleBox.appendChild(event);
-            titleBox.appendChild(location);
-            activityBox.appendChild(noteBox);
-            infoBox.appendChild(deleteBox);
+    activities.forEach((item) => {
+        const dayBox = document.createElement("section");
+        const dateBox = document.createElement("div");
+        const dayAndDate = document.createElement("h4");
+        const infoBox = document.createElement("div");
+        const timeBox = document.createElement("div");
+        const timeElem = document.createElement("h4");
+        const iconBox = document.createElement("div");
+        const activitySquare = document.createElement("div");
+        const activityBox = document.createElement("div");
+        const titleBox = document.createElement("div");
+        const eventElem = document.createElement("h4");
+        const locationElem = document.createElement("h5");
+        const noteBox = document.createElement("div");
+        const noteElem = document.createElement("p");
+        const deleteBox = document.createElement("div");
 
 
 
 
-            
-    
-        activityIndex++;
-    }
+        eventBox.appendChild(dayBox).classList.add("day-box");
+        dayBox.appendChild(dateBox).classList.add("date-box");
+        dayBox.appendChild(dayAndDate);
+        dayAndDate.append(`${item.date}`);
+        dayBox.appendChild(infoBox).classList.add("info-box");
+        infoBox.appendChild(timeBox).classList.add("time-box");
+        timeBox.appendChild(timeElem);
+        timeElem.append(`${item.time}`);
+        infoBox.appendChild(iconBox).classList.add("icon-box");
+        iconBox.appendChild(activitySquare).classList.add("activity-sqaure");
+        infoBox.appendChild(activityBox).classList.add("activityBox");
+        activityBox.appendChild(titleBox).classList.add("title-box");
+        titleBox.appendChild(eventElem);
+        titleBox.appendChild(locationElem);
+        eventElem.append(`${item.title}`);
+        locationElem.append(`${item.place}`);
+        activityBox.appendChild(noteBox).classList.add("note-box");
+        noteBox.appendChild(note);
+        noteElem.append(`${item.note}`);
+        activityBox.appendChild(deleteBox).classList.add("delete-box");
 
 
 
+
+
+
+
+
+
+
+
+
+    })
+
+}
 
 activityButton.addEventListener("click", activityFormClick);
 submitButton.addEventListener("click", activityFormSubmit);
-
-function colorChanger() {
-    const squareList = document.querySelector(".activity-square");
-    for (const square of squareList) {
-        square.addEventListener('click', function() {
-            document.getElementById('colorPicker').click();
-        });
-    }
-}
-
-colorChanger();
-
-document.getElementById('colorPicker').addEventListener('input', function() {
-    document.getElementById('colorSquare').style.backgroundColor = this.value;
-});
-
 document.addEventListener("DOMContentLoaded", displayActivities);
-
-
