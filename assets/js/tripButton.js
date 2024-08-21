@@ -32,10 +32,12 @@ function tripFormSubmit(event) {
         // Creates new trip object: name and empty activity list
         const trip = {
             name: title.value.trim(),
-            activity: []
+            activity: [],
+            imgUrl: "", 
         }
-
         tripList.push(trip);
+        //Create function that random image
+       //trip.imgUrl = get selectedImage();
         // Adds new trip list to local storage
         localStorage.setItem("tripList", JSON.stringify(tripList));
         // Hides form after successful submission
@@ -47,33 +49,6 @@ function tripFormSubmit(event) {
     }
     
 }
-//Have folder on images, function on line 74 would create a randomly generated number to grab image.
-//Creates an array of images
-const imageArray = [
-    'https://media.9news.com/assets/KUSA/images/7f6e78a1-dd06-48e2-85b2-6e35a08d6832/7f6e78a1-dd06-48e2-85b2-6e35a08d6832_1140x641.jpg',
-    'https://cdn.aarp.net/content/dam/aarp/travel/Domestic/2021/12/1140-oahu-hero.jpg',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT78NCXBn45EBPyNn3zfSjQe9kCxwiddFkH2A&s',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR1D45iBVsNs0SCKLbS2NwDW_2elEzF74vsQ&s'
-
-];
-//Grabs random image from image array
-
-// const randomImage = Math.floor(math.random() * imageArray.length);
-
-// //Creates a new image element
-// const newImage = document.createElement('img');
-// newImage.src = imageArray[randomIndex];
-// newImage.alt = 'randomImage';
-
-//Appened the new image to container
-// const container = document.getElementById('imageContainer');
-// container.appendChild(newImage);
-
-//Adds randomly generated background image to trip created by user 
-function displayBackgroundImage(many){
-    var arr = randomImages
-} 
-
 function tripFormError() {
     const errorMsg = document.createElement("p");
     errorMsg.classList.add("error");
@@ -87,7 +62,8 @@ function displayTrip() {
     for (const trip of tripList) {
         const tripblock = document.createElement("div");
         tripblock.classList.add("trip-block");
-        const triptitle = document.createElement("h3");
+        const triptitle = document.createElement("h2");
+        //Add trip image 
         tripblock.style.backgroundImage = trip.imgUrl;
         triptitle.textContent = trip.name;
 

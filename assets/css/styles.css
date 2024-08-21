@@ -205,35 +205,42 @@ form input {
 }
 
 .background{
-    position: absolute;
+    position: relative;
     padding: 0;
     margin: 0;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    background-size: cover;
-    animation: animate 20s ease-in-out infinte;
+    height: 60vh;
+    background-repeat: no-repeat;
+    text-align: center;
+    justify-content:center;
+    animation: animate 20s ease-in-out;
+    animation-iteration-count: infinite;
+
 }
-/*.img-container{
-    width: 100%;
-    display: flex;
-    animation: slide 20s ease-in-out infinite;
-    background-size: cover;
-}*/
 
 @keyframes animate{
 
     0%,100%{
-        background-image: url(https://media.9news.com/assets/KUSA/images/7f6e78a1-dd06-48e2-85b2-6e35a08d6832/7f6e78a1-dd06-48e2-85b2-6e35a08d6832_1140x641.jpg);
+        background-image: url('./images/Banner/Golden-Gate-Bridge-San-Francisco.jpg.webp');
+        background-size: cover;
+        background-position: center;
     }
     25%{
-        background-image: url(https://cdn.aarp.net/content/dam/aarp/travel/Domestic/2021/12/1140-oahu-hero.jpg);
+        background-image: url(/Users/Kurt/Documents/tripPlanner/images/Banner/hawaii-beach.png.webp);
+        background-size: cover;
+        background-position: center;
     }
     50%{
-        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT78NCXBn45EBPyNn3zfSjQe9kCxwiddFkH2A&s);
+        background-image: url(/Users/Kurt/Documents/tripPlanner/images/Banner/Snow-in-Colorado.png);
+        background-size: cover;
+        background-position: center;
     }
     75%{
-        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR1D45iBVsNs0SCKLbS2NwDW_2elEzF74vsQ&s);
+        background-image: url(/Users/Kurt/Documents/tripPlanner/images/Banner/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_cropped.jpg);
+        background-size: cover;
+        background-position: center;
+
     }
 }
