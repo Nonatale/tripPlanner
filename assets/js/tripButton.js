@@ -7,6 +7,8 @@ const tripContainer = document.querySelector("#tripContainer");
 
 const tripList = initTripList();
 
+
+
 function initTripList() {
     const localTripList = localStorage.getItem("tripList");
     return localTripList ? JSON.parse(localTripList) : [];
@@ -28,12 +30,13 @@ function tripFormSubmit(event) {
     event.preventDefault();
 
     // Only proceeds if entry is not empty. Otherwise, nothing happens
-    if (title.value.length !== 0) {
+    if (title.value.length !== 0 && (localStorage.getItem("imageArray").length !== 0)) {
         // Creates new trip object: name and empty activity list
         const trip = {
             name: title.value.trim(),
             activity: [],
-            imgUrl: "",
+
+            imgUrl: getRandomImage(this)
         }
         tripList.push(trip);
         //Create function that random image
@@ -45,10 +48,21 @@ function tripFormSubmit(event) {
 
         displayTrip();
     } else {
+        if (localStorage.getItem("imageArray").length !== 0) {
+            noTripImageError();
+        }
         tripFormError();
     }
 
 }
+
+function noTripImageError() {
+    const errorMsg = document.createElement("p");
+    errorMsg.classList.add("error");
+    errorMsg.textContent = "Maximum trip created.";
+    tripForm.appendChild(errorMsg);
+}
+
 function tripFormError() {
     const errorMsg = document.createElement("p");
     errorMsg.classList.add("error");
@@ -63,8 +77,10 @@ function displayTrip() {
         const tripblock = document.createElement("div");
         tripblock.classList.add("trip-block");
         const triptitle = document.createElement("h2");
-        //Add trip image 
+        //Add trip image
+        
         tripblock.style.backgroundImage = trip.imgUrl;
+
         triptitle.textContent = trip.name;
 
         tripContainer.appendChild(tripblock);
@@ -85,4 +101,6 @@ function redirEventPage(event, tripName) {
 
 tripButton.addEventListener("click", tripFormClick);
 submitButton.addEventListener("click", tripFormSubmit);
+
+imageSetup();
 displayTrip();

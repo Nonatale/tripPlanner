@@ -219,6 +219,10 @@ form input {
     padding-right: 20px;
 }
 
+.trip-block {
+    background-size: cover;
+}
+
 .background{
     position: relative;
     padding: 0;
@@ -238,22 +242,22 @@ form input {
 @keyframes animate{
 
     0%,100%{
-        background-image: url('./images/Banner/Golden-Gate-Bridge-San-Francisco.jpg.webp');
+        background-image: url("../../images/Banner/Golden-Gate-Bridge-San-Francisco.jpg.webp");
         background-size: cover;
         background-position: center;
     }
     25%{
-        background-image: url(/Users/Kurt/Documents/tripPlanner/images/Banner/hawaii-beach.png.webp);
+        background-image: url("../../images/Banner/hawaii-beach.png.webp");
         background-size: cover;
         background-position: center;
     }
     50%{
-        background-image: url(/Users/Kurt/Documents/tripPlanner/images/Banner/Snow-in-Colorado.png);
+        background-image: url("../../images/Banner/Snow-in-Colorado.png");
         background-size: cover;
         background-position: center;
     }
     75%{
-        background-image: url(/Users/Kurt/Documents/tripPlanner/images/Banner/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_cropped.jpg);
+        background-image: url("../../images/Banner/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_\(cropped\).jpg");
         background-size: cover;
         background-position: center;
 
