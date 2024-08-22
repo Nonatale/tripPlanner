@@ -57,6 +57,39 @@ function activityFormSubmit(event) {
     }
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const deleteButton = document.getElementById('deleteTripButton');
+    const deleteModalElement = document.getElementById('deleteModal');
+    const confirmDeleteButton = document.getElementById('confirmDelete');
+  
+     //to ensure that bootstrap modal is being used
+     if (deleteButton && deleteModalElement && confirmDeleteButton) {
+    try {
+      const deleteModal = new bootstrap.Modal(deleteModalElement);
+    
+      // clicking on delete trip button opens modal
+      deleteButton.addEventListener('click', function() {
+        deleteModal.show();
+      });
+  
+      // Add event listener to handle delete confirmation
+      confirmDeleteButton.addEventListener('click', function () {
+        console.log('Item deleted');
+        deleteModal.hide();
+        
+      });
+    //implemented this b/c I was needing to identify initial errors
+    } catch(error) {
+        console.error("Error initializing Bootstrap modal", error)
+    }
+}
+
+});
+
+    
+  
+
+
 // Adds new activity to a trip and then sorts the events and trips
 function updateActivityList(activity) {
     const tripIndex = getTripIndex(currTrip);
@@ -177,4 +210,5 @@ function displayActivities() {
 
 activityButton.addEventListener("click", activityFormClick);
 submitButton.addEventListener("click", activityFormSubmit);
+//deletebutton.addEventListener("click", deleteTrip);
 document.addEventListener("DOMContentLoaded", displayActivities);
