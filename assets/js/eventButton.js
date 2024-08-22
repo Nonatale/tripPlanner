@@ -149,7 +149,7 @@ function displayActivities() {
 
 
         eventBox.appendChild(dayBox).classList.add("day-box");
-        dayBox.appendChild(dateBox).classList.add("date-box");
+        eventBox.appendChild(dateBox).classList.add("date-box");
         dayBox.appendChild(dayAndDate);
         dayAndDate.append(`${item.date}`);
         dayBox.appendChild(infoBox).classList.add("info-box");
