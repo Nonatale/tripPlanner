@@ -48,7 +48,7 @@ function tripFormSubmit(event) {
 
         displayTrip();
     } else {
-        if (localStorage.getItem("imageArray").length !== 0) {
+        if (localStorage.getItem("imageArray").length <= 0) {
             noTripImageError();
         }
         tripFormError();
@@ -57,6 +57,12 @@ function tripFormSubmit(event) {
 }
 
 function noTripImageError() {
+    // Check if an error message already exists
+    const existingErrorMsg = tripForm.querySelector(".error");
+    if (existingErrorMsg) {
+        // Remove the existing error message
+        tripForm.removeChild(existingErrorMsg);
+    }
     const errorMsg = document.createElement("p");
     errorMsg.classList.add("error");
     errorMsg.textContent = "Maximum trip created.";
@@ -64,6 +70,12 @@ function noTripImageError() {
 }
 
 function tripFormError() {
+    // Check if an error message already exists
+    const existingErrorMsg = tripForm.querySelector(".error");
+    if (existingErrorMsg) {
+        // Remove the existing error message
+        tripForm.removeChild(existingErrorMsg);
+    }
     const errorMsg = document.createElement("p");
     errorMsg.classList.add("error");
     errorMsg.textContent = "Please enter a trip name.";
