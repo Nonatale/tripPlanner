@@ -77,14 +77,17 @@ function displayTrip() {
         const tripblock = document.createElement("div");
         tripblock.classList.add("trip-block");
         const triptitle = document.createElement("h2");
+        const textBackground = document.createElement("div");
         //Add trip image
-        
         tripblock.style.backgroundImage = trip.imgUrl;
 
+        textBackground.classList.add("white-background");
         triptitle.textContent = trip.name;
 
         tripContainer.appendChild(tripblock);
+        
         tripblock.appendChild(triptitle);
+        tripblock.appendChild(textBackground);
         // Adds clickable event to the images and redirects page when clicked
         tripblock.addEventListener("click", (event) => {
             redirEventPage(event, trip.name)
