@@ -27,6 +27,12 @@
     --bg-teal: #20c997;
     --bs-body-bg: none;
     --bs-navbar-nav-link-padding-x: 2rem;
+    --bs-navbar-padding-y: 1rem;
+}
+
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 header {
@@ -113,8 +119,7 @@ h3 {
 }
 
 .day-activity-box {
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
     flex-grow: 1;
 }
 
@@ -128,7 +133,7 @@ h3 {
     display: flex;
     align-items: start;
     justify-content: center;
-    width: 100px;
+    min-width: 100px;
 }
 
 .title-box {
@@ -137,11 +142,12 @@ h3 {
 
 .activity-box {
     padding-bottom: 20px;
+    flex-grow: 1;
 }
 
 .activity-square {
-    width: 40%;
-    padding-top: 40%; /* Ensures the square's height equals its width */
+    width: 40px;
+    padding-top: 40px; /* Ensures the square's height equals its width */
     background-color: #555555;
     border-radius: 8px;
     position: relative;
@@ -177,13 +183,12 @@ h3 {
 }
 
 .note-box {
-    width: 500px;
+    min-width: 300px;
 }
 
 .delete-box {
     display: flex;
     justify-content: end;
-    flex-grow: 1;
     padding-left: 20px;
 }
 
@@ -199,6 +204,18 @@ h3 {
 
 #main-container {
     min-height: 70vh;
+}
+
+#banner-after {
+    display: flex;
+    flex-wrap: nowap;
+    height: 80%;
+}
+
+#banner-before {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 form {
@@ -249,26 +266,34 @@ form input {
 @keyframes animate{
 
     0%,100%{
-        background-image: url("../../images/Banner/Golden-Gate-Bridge-San-Francisco.jpg.webp");
+        background-image: url("../img/Banner/Golden-Gate-Bridge-San-Francisco.jpg.webp");
         background-size: cover;
         background-position: center;
     }
     25%{
-        background-image: url("../../images/Banner/hawaii-beach.png.webp");
+        background-image: url("../img/Banner/hawaii-beach.png.webp");
         background-size: cover;
         background-position: center;
     }
     50%{
-        background-image: url("../../images/Banner/Snow-in-Colorado.png");
+        background-image: url("../img/Banner/Snow-in-Colorado.png");
         background-size: cover;
         background-position: center;
     }
     75%{
-        background-image: url("../../images/Banner/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_\(cropped\).jpg");
+        background-image: url("../img/Banner/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_\(cropped\).jpg");
         background-size: cover;
         background-position: center;
 
     }
+}
+
+.event-banner {
+    height: 200px;
+    border-radius: 30px;
+    margin-bottom: 40px;
+    background-size: cover;
+    background-position: center center;
 }
 
 .footer {
@@ -309,4 +334,52 @@ form input {
 
 .footer-bottom p {
     margin: 0;
+}
+
+@media screen and (max-width: 992px) {
+    .day-box {
+        display: inline;
+
+    }
+    .date-box {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .day-box {
+        display: inline;
+        margin-bottom: 20px;
+    }
+    .date-box {
+        margin-bottom: 20px;
+    }
+
+    .activity-square {
+        width: 25px;
+        padding-top: 25px; /* Ensures the square's height equals its width */
+        border-radius: 4px;
+    }
+
+    .icon-box {
+        display: none;
+        min-width: 50px;
+        justify-content: start;
+    }
+
+    .info-box {
+        display: inline;
+    }
+
+    .activity-box {
+        padding-bottom: 0;
+    }
+
+    #banner-before {
+        display: inline;
+    }
+
+    .note-box {
+        min-width: none;
+    }
 }

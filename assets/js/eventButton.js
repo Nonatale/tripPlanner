@@ -34,8 +34,8 @@ function activityFormSubmit(event) {
 
         const activity = {
             title: title.value.trim(),
-            date: date.value.trim(),
-            time: time.value.trim(),
+            date: date.value,
+            time: time.value,
             place: place.value.trim(),
             note: note.value ? note.value.trim() : undefined,
             trip: localStorage.getItem("currTrip")
@@ -57,10 +57,34 @@ function activityFormSubmit(event) {
     }
 }
 
+function displayEventBanner() {
+    const pageContainer = document.querySelector("#main-container");
+    const currTrip = localStorage.getItem("currTrip");
+    const tripList = JSON.parse(localStorage.getItem("tripList"));
+    const tripIndex = getTripIndex(currTrip);
+
+    const banner = document.createElement("div");
+    banner.classList.add("event-banner");
+    banner.style.backgroundImage = tripList[tripIndex].imgUrl;
+    pageContainer.insertBefore(banner, pageContainer.firstChild);
+}
+
+function displayTripTitle() {
+    const pageContainer = document.querySelector("#banner-before");
+    const currTrip = localStorage.getItem("currTrip");
+
+    const title = document.createElement("h1");
+    title.textContent = currTrip;
+    pageContainer.insertBefore(title, pageContainer.firstChild);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const deleteButton = document.getElementById('deleteTripButton');
     const deleteModalElement = document.getElementById('deleteModal');
     const confirmDeleteButton = document.getElementById('confirmDelete');
+
+    displayEventBanner();
+    displayTripTitle();
   
      //to ensure that bootstrap modal is being used
      if (deleteButton && deleteModalElement && confirmDeleteButton) {
@@ -74,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
       // Add event listener to handle delete confirmation
       confirmDeleteButton.addEventListener('click', function () {
-        console.log('Item deleted');
+        //console.log('Item deleted');
         deleteModal.hide();
         deleteTrip();
         redirectPage("../../index.html");
@@ -91,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
 function deleteTrip() {
     const currTrip = localStorage.getItem("currTrip");
   
-
     const tripList = JSON.parse(localStorage.getItem("tripList")) || [];
     const tripIndex = getTripIndex(currTrip);
 
@@ -102,17 +125,12 @@ function deleteTrip() {
         // make sure local storage is updated to reflect new array
         localStorage.setItem("tripList", JSON.stringify(tripList));
 
-        //  current trip is removed from local storage
+        // current trip is removed from local storage
         localStorage.removeItem("currTrip");
     } else {
         console.error("Trip not found in tripList.");
     }
 }
-
-
-    
-  
-
 
 // Adds new activity to a trip and then sorts the events and trips
 function updateActivityList(activity) {
@@ -189,7 +207,6 @@ function displayActivities() {
     
     activities.forEach((item) => {
         if (!currDate || item.date != currDate) {
-            console.log(!currDate);
             const dayBox = document.createElement("section");
             const dateBox = document.createElement("div");
             const dayAndDate = document.createElement("h4");
@@ -203,7 +220,6 @@ function displayActivities() {
 
             currDate = item.date;
         }
-        console.log(dayActivity);
         
         const infoBox = document.createElement("div");
         const timeBox = document.createElement("div");

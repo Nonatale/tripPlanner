@@ -3,8 +3,8 @@ const redirectPage = function (url) {
     location.assign(url);
   };
 
-function getWeekday(date) {
-  const dateNum = new Date(date);
+function getWeekday(date) {  
+  const dateNum = new Date(`${date}T00:00:00-04:00`);
 
   const dayOfWeek = dateNum.getDay(); // Returns a number between 0 and 6
 
@@ -17,7 +17,7 @@ function getWeekday(date) {
 }
 
 function formatDate(date) {
-  const convDate = new Date(date);
+  const convDate = new Date(`${date}T00:00:00-04:00`);
   // Format the date to "Month Day" with the month in short form
   let options = { month: 'short', day: 'numeric' };
   let formattedDate = convDate.toLocaleDateString('en-US', options);
