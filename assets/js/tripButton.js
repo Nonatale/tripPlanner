@@ -32,10 +32,12 @@ function tripFormSubmit(event) {
         // Creates new trip object: name and empty activity list
         const trip = {
             name: title.value.trim(),
-            activity: []
+            activity: [],
+            imgUrl: "", 
         }
-
         tripList.push(trip);
+        //Create function that random image
+       //trip.imgUrl = get selectedImage();
         // Adds new trip list to local storage
         localStorage.setItem("tripList", JSON.stringify(tripList));
         // Hides form after successful submission
@@ -47,6 +49,7 @@ function tripFormSubmit(event) {
     }
     
 }
+<<<<<<< HEAD
 //Have folder on images, function on line 74 would create a randomly generated number to grab image.
 //Creates an array of images
 const imageArray = [
@@ -73,6 +76,8 @@ const imageArray = [
 //     var arr = randomImages
 // } 
 
+=======
+>>>>>>> 4ef339e14ad456eef3f134d2d6bb4fccc792a2e7
 function tripFormError() {
     const errorMsg = document.createElement("p");
     errorMsg.classList.add("error");
@@ -86,7 +91,8 @@ function displayTrip() {
     for (const trip of tripList) {
         const tripblock = document.createElement("div");
         tripblock.classList.add("trip-block");
-        const triptitle = document.createElement("h3");
+        const triptitle = document.createElement("h2");
+        //Add trip image 
         tripblock.style.backgroundImage = trip.imgUrl;
         triptitle.textContent = trip.name;
 

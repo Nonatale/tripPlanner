@@ -62,8 +62,8 @@ function updateActivityList(activity) {
     const tripIndex = getTripIndex(currTrip);
     const tripList = JSON.parse(localStorage.getItem("tripList"));
     tripList[tripIndex].activity.push(activity);
-    sortActivities(currTrip);
     localStorage.setItem("tripList", JSON.stringify(tripList));
+    sortActivities(currTrip);
 }
 
 // Searches for a trip name in the local storage and returns the index of that trip
@@ -109,6 +109,7 @@ function sortActivities(tripName) {
         }
         return dateComparison;
     })
+    localStorage.setItem("tripList", JSON.stringify(tripList));
     sortTrips();
 }
 
