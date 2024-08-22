@@ -3,15 +3,26 @@ const redirectPage = function (url) {
     location.assign(url);
   };
 
-function getWeekday (date) {
+function getWeekday(date) {
   const dateNum = new Date(date);
+
   const dayOfWeek = dateNum.getDay(); // Returns a number between 0 and 6
 
   // Map the number to the name of the day
-  const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const weekdayName = weekdays[dayOfWeek];
 
   return weekdayName;
+
+}
+
+function formatDate(date) {
+  const convDate = new Date(date);
+  // Format the date to "Month Day" with the month in short form
+  let options = { month: 'short', day: 'numeric' };
+  let formattedDate = convDate.toLocaleDateString('en-US', options);
+
+  return formattedDate;
 
 }
 

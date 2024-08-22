@@ -53,7 +53,7 @@ nav {
 }
 
 h2 {
-    padding-bottom: 0;
+    padding-bottom: 20px;
 }
 
 h3 {
@@ -78,15 +78,14 @@ h3 {
 }
 
 .trip-block {
-    display: flex;
-    align-items: end;
     position: relative;
     padding: 15px;
     border: 2px #000000 solid;
     border-radius: 20px;
     height: 100px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     border-bottom-left-radius: 0;
+    background-size: cover;
     transition: box-shadow border-color 0.3s ease;
 }
 
@@ -96,8 +95,7 @@ h3 {
     box-shadow: 5px 5px 20px rgba(177, 177, 177, 0.726);
 }
 
-.eventBox {
-    display: flex;
+#eventBox {
     margin-top: 48px;
 }
 
@@ -105,11 +103,19 @@ h3 {
     display: flex;
     flex-grow: 1;
     gap: 10px;
+    margin-bottom: 40px;
 }
 
 .date-box {
     display: flex;
-    width: 300px;
+    min-width: 250px;
+
+}
+
+.day-activity-box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
 }
 
 .info-box {
@@ -127,6 +133,10 @@ h3 {
 
 .title-box {
     width: 200px;
+}
+
+.activity-box {
+    padding-bottom: 20px;
 }
 
 .activity-square {
@@ -148,10 +158,6 @@ h3 {
     animation: shadowColorChange 2s infinite alternate;
 }
 
-#tripText {
-    
-}
-
 @keyframes shadowColorChange {
     0% {
         background-color: rgba(255, 0, 0, 0.2);
@@ -171,7 +177,7 @@ h3 {
 }
 
 .note-box {
-    max-width: 500px;
+    width: 500px;
 }
 
 .delete-box {
@@ -183,12 +189,16 @@ h3 {
 
 #label {
     display: block;
-    padding: 1rem; /* Add padding */
+    padding-top: 20px;
 }
 
 #align-bottom {
     display: flex;
     align-items: center;
+}
+
+#main-container {
+    min-height: 70vh;
 }
 
 form {
@@ -210,9 +220,6 @@ form input {
     padding-right: 20px;
 }
 
-.trip-block {
-    background-size: cover;
-}
 
 .background{
     position: relative;
@@ -228,6 +235,15 @@ form input {
     animation: animate 20s ease-in-out;
     animation-iteration-count: infinite;
 
+}
+
+#tripText {
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+#trip-content {
+    padding-bottom: 80px;
 }
 
 @keyframes animate{
@@ -253,4 +269,44 @@ form input {
         background-position: center;
 
     }
+}
+
+.footer {
+    background-color: #cecece;
+    color: #6d6d6d;
+    padding-top: 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 15px;
+}
+
+.footer-section h2 {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.footer-bottom {
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    background-color: #919191;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.footer-bottom p {
+    margin: 0;
 }

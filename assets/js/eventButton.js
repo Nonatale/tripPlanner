@@ -124,14 +124,30 @@ function displayActivities() {
     const tripList = JSON.parse(localStorage.getItem("tripList"));
     const tripIndex = getTripIndex(localStorage.getItem("currTrip"));
     const trip = tripList[tripIndex];
-    console.log(trip);
 
     const activities = trip.activity;
     eventBox.innerHTML = "";
+
+    let currDate, dayActivity;
+    
     activities.forEach((item) => {
-        const dayBox = document.createElement("section");
-        const dateBox = document.createElement("div");
-        const dayAndDate = document.createElement("h4");
+        if (!currDate || item.date != currDate) {
+            console.log(!currDate);
+            const dayBox = document.createElement("section");
+            const dateBox = document.createElement("div");
+            const dayAndDate = document.createElement("h4");
+            dayActivity = document.createElement("div");
+
+            eventBox.appendChild(dayBox).classList.add("day-box");
+            dayBox.appendChild(dateBox).classList.add("date-box");
+            dayBox.appendChild(dayActivity).classList.add("day-activity-box");
+            dateBox.appendChild(dayAndDate);
+            dayAndDate.append(`${getWeekday(item.date)}, ${formatDate(item.date)}`);
+
+            currDate = item.date;
+        }
+        console.log(dayActivity);
+        
         const infoBox = document.createElement("div");
         const timeBox = document.createElement("div");
         const timeElem = document.createElement("h4");
@@ -144,35 +160,37 @@ function displayActivities() {
         const noteBox = document.createElement("div");
         const noteElem = document.createElement("p");
         const deleteBox = document.createElement("div");
+        const trashCan = document.createElement("span");
 
-
-
-
-        eventBox.appendChild(dayBox).classList.add("day-box");
-        eventBox.appendChild(dateBox).classList.add("date-box");
-        dayBox.appendChild(dayAndDate);
-        dayAndDate.append(`${item.date}`);
-        dayBox.appendChild(infoBox).classList.add("info-box");
+        dayActivity.appendChild(infoBox).classList.add("info-box");
         infoBox.appendChild(timeBox).classList.add("time-box");
         timeBox.appendChild(timeElem);
         timeElem.append(`${item.time}`);
         infoBox.appendChild(iconBox).classList.add("icon-box");
-        iconBox.appendChild(activitySquare).classList.add("activity-sqaure");
-        infoBox.appendChild(activityBox).classList.add("activityBox");
+        iconBox.appendChild(activitySquare).classList.add("activity-square");
+        infoBox.appendChild(activityBox).classList.add("activity-box");
         activityBox.appendChild(titleBox).classList.add("title-box");
         titleBox.appendChild(eventElem);
         titleBox.appendChild(locationElem);
         eventElem.append(`${item.title}`);
         locationElem.append(`${item.place}`);
         activityBox.appendChild(noteBox).classList.add("note-box");
-        noteBox.appendChild(note);
-        noteElem.append(`${item.note}`);
-        activityBox.appendChild(deleteBox).classList.add("delete-box");
-
+        noteBox.appendChild(noteElem);
+        noteElem.append(`${noNote(item.note)}`);
+        infoBox.appendChild(deleteBox).classList.add("delete-box");
+        deleteBox.appendChild(trashCan).classList.add("material-symbols-outlined");
+        trashCan.textContent = "delete";
 
 
     })
 
+}
+
+function noNote(note) {
+    if (!note) {
+        return "";
+    }
+    return note;
 }
 
 activityButton.addEventListener("click", activityFormClick);
