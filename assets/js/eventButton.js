@@ -76,7 +76,9 @@ document.addEventListener('DOMContentLoaded', function () {
       confirmDeleteButton.addEventListener('click', function () {
         console.log('Item deleted');
         deleteModal.hide();
-        
+        deleteTrip();
+        redirectPage("../../index.html");
+
       });
     //implemented this b/c I was needing to identify initial errors
     } catch(error) {
@@ -85,6 +87,28 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 
 });
+
+function deleteTrip() {
+    const currTrip = localStorage.getItem("currTrip");
+  
+
+    const tripList = JSON.parse(localStorage.getItem("tripList")) || [];
+    const tripIndex = getTripIndex(currTrip);
+
+    if (tripIndex > -1) {
+        // Remove the trip from tripList
+        tripList.splice(tripIndex, 1);
+
+        // make sure local storage is updated to reflect new array
+        localStorage.setItem("tripList", JSON.stringify(tripList));
+
+        //  current trip is removed from local storage
+        localStorage.removeItem("currTrip");
+    } else {
+        console.error("Trip not found in tripList.");
+    }
+}
+
 
     
   
