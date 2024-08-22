@@ -249,7 +249,7 @@ form input {
     background-repeat: no-repeat;
     text-align: center;
     justify-content:center;
-    animation: animate 20s ease-in-out;
+    animation: animate 100s ease-in-out;
     animation-iteration-count: infinite;
 
 }
@@ -266,21 +266,46 @@ form input {
 @keyframes animate{
 
     0%,100%{
-        background-image: url("../img/Banner/Golden-Gate-Bridge-San-Francisco.jpg.webp");
+        background-image: url("../img/Banner/Bahamas.jpeg");
         background-size: cover;
         background-position: center;
     }
-    25%{
-        background-image: url("../img/Banner/hawaii-beach.png.webp");
+    10%{
+        background-image: url("../img/Banner/Hot-Air-Balloon.jpeg");
+        background-size: cover;
+        background-position: center;
+    }
+    20%{
+        background-image: url("../img/Banner/River-Boat.jpeg");
+        background-size: cover;
+        background-position: center;
+    }
+    30%{
+        background-image: url("../img/Banner/Train-Tunnel.jpeg");
+        background-size: cover;
+        background-position: center;
+    }
+    40%{
+        background-image: url("../img/Banner/Snow\ Cabin.jpeg");
         background-size: cover;
         background-position: center;
     }
     50%{
+        background-image: url("../img/Banner/Vietnam.jpeg");
+        background-size: cover;
+        background-position: center;
+    }
+    60%{
+        background-image: url("../img/Banner/hawaii-beach.png.webp");
+        background-size: cover;
+        background-position: center;
+    }
+    70%{
         background-image: url("../img/Banner/Snow-in-Colorado.png");
         background-size: cover;
         background-position: center;
     }
-    75%{
+    80%{
         background-image: url("../img/Banner/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_\(cropped\).jpg");
         background-size: cover;
         background-position: center;
