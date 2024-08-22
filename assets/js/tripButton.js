@@ -22,7 +22,7 @@ function tripFormClick(event) {
     } else {
         tripForm.classList.add("hidden");
     }
-    
+
 }
 
 // Submits new trip element to the local storage upon button click
@@ -35,11 +35,12 @@ function tripFormSubmit(event) {
         const trip = {
             name: title.value.trim(),
             activity: [],
+
             imgUrl: getRandomImage(this)
         }
         tripList.push(trip);
         //Create function that random image
-       //trip.imgUrl = get selectedImage();
+        //trip.imgUrl = get selectedImage();
         // Adds new trip list to local storage
         localStorage.setItem("tripList", JSON.stringify(tripList));
         // Hides form after successful submission
@@ -52,7 +53,7 @@ function tripFormSubmit(event) {
         }
         tripFormError();
     }
-    
+
 }
 
 function noTripImageError() {
@@ -91,7 +92,7 @@ function displayTrip() {
     }
 }
 
-function redirEventPage (event, tripName) {
+function redirEventPage(event, tripName) {
     event.preventDefault();
     console.log(tripName);
     localStorage.setItem("currTrip", tripName);

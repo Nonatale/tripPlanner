@@ -9,7 +9,6 @@ const place = document.querySelector("#place");
 const note = document.querySelector("#note");
 const price = document.querySelector("#price");
 const reservation = document.querySelector("#reservation");
-const eventBox=document.querySelector("#eventBox")
 
 const activityForm = document.querySelector("#activityForm");
 
@@ -45,6 +44,14 @@ function activityFormSubmit(event) {
         updateActivityList(activity);
 
         activityForm.classList.add("hidden");
+        displayActivities();
+
+        title.value = "";
+        date.value = "";
+        time.value = "";
+        place.value = "";
+        note.value = "";
+
     } else {
         activityFormError();
     }
@@ -73,7 +80,7 @@ function getTripIndex(tripName) {
 // Sort the trips based on the date and time of the first activity
 function sortTrips() {
     const tripList = JSON.parse(localStorage.getItem("tripList"));
-    
+
     tripList.sort((trip1, trip2) => {
         // Ensure both trips have at least one activity with a valid date and time
         if (trip1.activity.length > 0 && trip2.activity.length > 0) {
@@ -87,7 +94,7 @@ function sortTrips() {
         // If one or both trips have no activities, consider them equal in sorting
         return 0;
     });
-    
+
     localStorage.setItem("tripList", JSON.stringify(tripList));
 }
 
@@ -117,46 +124,66 @@ function displayActivities() {
     const tripList = JSON.parse(localStorage.getItem("tripList"));
     const tripIndex = getTripIndex(localStorage.getItem("currTrip"));
     const trip = tripList[tripIndex];
-    // Display Logic
-    let currDate;
-    let activityIndex = 0;
-    // Loops through 
-    while (trip.activity[activityIndex]) {
-        if (!currDate || currDate !== activity.date) {
-            const dayBox = document.createElement("section");
-            const dateBox = document.createElement("div");
-            const infoBox = document.createElement("div");
-            dayBox.classList.add("day-box");
-            dateBox.classList.add("date-box");
-            infoBox.classList.add("info-box");
-            
-            eventBox.appendChild(dayBox);
-            dayBox.appendChild(dateBox);
-            dayBox.appendChild(infoBox);
-        } else {
+    console.log(trip);
 
-        }
-        activityIndex++;
-    }
+    const activities = trip.activity;
+    eventBox.innerHTML = "";
+    activities.forEach((item) => {
+        const dayBox = document.createElement("section");
+        const dateBox = document.createElement("div");
+        const dayAndDate = document.createElement("h4");
+        const infoBox = document.createElement("div");
+        const timeBox = document.createElement("div");
+        const timeElem = document.createElement("h4");
+        const iconBox = document.createElement("div");
+        const activitySquare = document.createElement("div");
+        const activityBox = document.createElement("div");
+        const titleBox = document.createElement("div");
+        const eventElem = document.createElement("h4");
+        const locationElem = document.createElement("h5");
+        const noteBox = document.createElement("div");
+        const noteElem = document.createElement("p");
+        const deleteBox = document.createElement("div");
+
+
+
+
+        eventBox.appendChild(dayBox).classList.add("day-box");
+        eventBox.appendChild(dateBox).classList.add("date-box");
+        dayBox.appendChild(dayAndDate);
+        dayAndDate.append(`${item.date}`);
+        dayBox.appendChild(infoBox).classList.add("info-box");
+        infoBox.appendChild(timeBox).classList.add("time-box");
+        timeBox.appendChild(timeElem);
+        timeElem.append(`${item.time}`);
+        infoBox.appendChild(iconBox).classList.add("icon-box");
+        iconBox.appendChild(activitySquare).classList.add("activity-sqaure");
+        infoBox.appendChild(activityBox).classList.add("activityBox");
+        activityBox.appendChild(titleBox).classList.add("title-box");
+        titleBox.appendChild(eventElem);
+        titleBox.appendChild(locationElem);
+        eventElem.append(`${item.title}`);
+        locationElem.append(`${item.place}`);
+        activityBox.appendChild(noteBox).classList.add("note-box");
+        noteBox.appendChild(note);
+        noteElem.append(`${item.note}`);
+        activityBox.appendChild(deleteBox).classList.add("delete-box");
+
+
+
+
+
+
+
+
+
+
+
+
+    })
 
 }
 
 activityButton.addEventListener("click", activityFormClick);
 submitButton.addEventListener("click", activityFormSubmit);
-
-// function colorChanger() {
-//     const squareList = document.querySelector(".activity-square");
-//     for (const square of squareList) {
-//         square.addEventListener('click', function() {
-//             document.getElementById('colorPicker').click();
-//         });
-//     }
-// }
-
-// colorChanger();
-
-// document.getElementById('colorPicker').addEventListener('input', function() {
-//     document.getElementById('colorSquare').style.backgroundColor = this.value;
-// });
-
 document.addEventListener("DOMContentLoaded", displayActivities);

@@ -30,26 +30,34 @@
 }
 
 header {
-    background-color: #b0aef6ee;  /* Light blue color */
-    padding: 1rem; /* Add padding */
+    background-color: #b0aef6ee;
+    /* Light blue color */
+    padding: 1rem;
+    /* Add padding */
 }
 
 header h1 {
-    margin-bottom: 0.5rem; /* Space below the heading */
+    margin-bottom: 0.5rem;
+    /* Space below the heading */
 }
 
 header nav a {
-    margin: 0 3rem; /* Space between links */
-    color: #0f1a26; /* Bootstrap primary color */
-    text-decoration: none; /* Remove underline */
+    margin: 0 3rem;
+    /* Space between links */
+    color: #0f1a26;
+    /* Bootstrap primary color */
+    text-decoration: none;
+    /* Remove underline */
 }
 
 header nav a:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline;
+    /* Underline on hover */
 }
 
 nav {
-    padding: 2rem; /* Add padding */
+    padding: 2rem;
+    /* Add padding */
 }
 
 h2 {
@@ -62,19 +70,20 @@ h3 {
 }
 
 .material-symbols-outlined {
-    font-variation-settings: 
-      'FILL' 1, 
-      'wght' 400, 
-      'GRAD' 0, 
-      'opsz' 24; /* Controls the icon's design details */
-    
-      font-size: 30px !important;
-      color: #b3b3b3;
-      cursor: pointer;
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    /* Controls the icon's design details */
+
+    font-size: 30px !important;
+    color: #b3b3b3;
+    cursor: pointer;
 }
 
 .material-symbols-outlined:hover {
-      color: #474747;
+    color: #474747;
 }
 
 .trip-block {
@@ -96,7 +105,9 @@ h3 {
 
 .eventBox {
     display: flex;
+    flex-direction: column;
     margin-top: 48px;
+
 }
 
 .day-box {
@@ -129,7 +140,8 @@ h3 {
 
 .activity-square {
     width: 40%;
-    padding-top: 40%; /* Ensures the square's height equals its width */
+    padding-top: 40%;
+    /* Ensures the square's height equals its width */
     background-color: #555555;
     border-radius: 8px;
     position: relative;
@@ -152,11 +164,13 @@ h3 {
         box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
         filter: brightness(1.2);
     }
+
     50% {
         background-color: rgba(0, 255, 0, 0.2);
         box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
         filter: brightness(1.5);
     }
+
     100% {
         background-color: rgba(0, 0, 255, 0.4);
         box-shadow: 0 0 10px rgba(0, 0, 255, 0.4);
@@ -177,7 +191,8 @@ h3 {
 
 #label {
     display: block;
-    padding: 1rem; /* Add padding */
+    padding: 1rem;
+    /* Add padding */
 }
 
 #align-bottom {
