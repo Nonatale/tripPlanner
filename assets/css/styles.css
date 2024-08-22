@@ -86,13 +86,34 @@ h3 {
 .trip-block {
     position: relative;
     padding: 15px;
-    border: 2px #000000 solid;
+    border: 2px #dadada solid;
     border-radius: 20px;
     height: 100px;
     margin-bottom: 40px;
     border-bottom-left-radius: 0;
     background-size: cover;
+    background-position: center center;
     transition: box-shadow border-color 0.3s ease;
+}
+
+.white-background {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.671);
+    bottom: 0;
+    left: 0;
+    width: 20%;
+    height: 50%;
+    z-index: 9;
+    border-radius: 0px;
+    border-top-right-radius: 20px;
+}
+
+.trip-block h2 {
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .trip-block:hover {
