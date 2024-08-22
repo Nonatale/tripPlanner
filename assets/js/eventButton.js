@@ -171,15 +171,6 @@ function displayActivities() {
 
 
 
-
-
-
-
-
-
-
-
-
     })
 
 }
