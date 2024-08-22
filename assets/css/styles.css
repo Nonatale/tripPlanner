@@ -223,7 +223,7 @@ form input {
 @keyframes animate{
 
     0%,100%{
-        background-image: url('./images/Banner/Golden-Gate-Bridge-San-Francisco.jpg.webp');
+        background-image: url(/Users/Kurt/Documents/tripPlanner/images/Banner/Golden-Gate-Bridge-San-Francisco.jpg.webp);
         background-size: cover;
         background-position: center;
     }

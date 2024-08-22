@@ -6,10 +6,13 @@ const imageArray = [
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT78NCXBn45EBPyNn3zfSjQe9kCxwiddFkH2A&s',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR1D45iBVsNs0SCKLbS2NwDW_2elEzF74vsQ&s'
 ]
-
+function getRandomImage (){
 //Grabs random image from image array
 const randomImage = Math.floor(Math.random() * imageArray.length);
 //Select a random image
-const selectedImage = images[randomImage];
+const selectedImage = imageArray[randomImage];
 //Apply random image to attribute of the button
-document.querySelector('container mt-5').style.backgroundImage = `url(${selectedImage})`;
+//document.querySelector('.container mt-5').style.backgroundImage = `url(${selectedImage})`;
+tripButton.imgUrl = `url(${selectedImage})`;
+
+}
