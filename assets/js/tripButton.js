@@ -20,7 +20,7 @@ function tripFormClick(event) {
     } else {
         tripForm.classList.add("hidden");
     }
-    
+
 }
 
 // Submits new trip element to the local storage upon button click
@@ -33,11 +33,11 @@ function tripFormSubmit(event) {
         const trip = {
             name: title.value.trim(),
             activity: [],
-            imgUrl: "", 
+            imgUrl: "",
         }
         tripList.push(trip);
         //Create function that random image
-       //trip.imgUrl = get selectedImage();
+        //trip.imgUrl = get selectedImage();
         // Adds new trip list to local storage
         localStorage.setItem("tripList", JSON.stringify(tripList));
         // Hides form after successful submission
@@ -47,37 +47,8 @@ function tripFormSubmit(event) {
     } else {
         tripFormError();
     }
-    
+
 }
-<<<<<<< HEAD
-//Have folder on images, function on line 74 would create a randomly generated number to grab image.
-//Creates an array of images
-const imageArray = [
-    'https://media.9news.com/assets/KUSA/images/7f6e78a1-dd06-48e2-85b2-6e35a08d6832/7f6e78a1-dd06-48e2-85b2-6e35a08d6832_1140x641.jpg',
-    'https://cdn.aarp.net/content/dam/aarp/travel/Domestic/2021/12/1140-oahu-hero.jpg',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT78NCXBn45EBPyNn3zfSjQe9kCxwiddFkH2A&s',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR1D45iBVsNs0SCKLbS2NwDW_2elEzF74vsQ&s'
-
-];
-//Grabs random image from image array
-// const randomImage = Math.floor(math.random() * imageArray.length);
-
-// //Creates a new image element
-// const newImage = document.createElement('img');
-// newImage.src = imageArray[randomIndex];
-// newImage.alt = 'randomImage';
-
-// //Appened the new image to container
-// const container = document.getElementById('imageContainer');
-// container.appendChild(newImage);
-
-// //Adds randomly generated background image to trip created by user 
-// function displayBackgroundImage(many){
-//     var arr = randomImages
-// } 
-
-=======
->>>>>>> 4ef339e14ad456eef3f134d2d6bb4fccc792a2e7
 function tripFormError() {
     const errorMsg = document.createElement("p");
     errorMsg.classList.add("error");
@@ -105,7 +76,7 @@ function displayTrip() {
     }
 }
 
-function redirEventPage (event, tripName) {
+function redirEventPage(event, tripName) {
     event.preventDefault();
     console.log(tripName);
     localStorage.setItem("currTrip", tripName);
