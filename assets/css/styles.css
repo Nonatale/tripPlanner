@@ -27,6 +27,12 @@
     --bg-teal: #20c997;
     --bs-body-bg: none;
     --bs-navbar-nav-link-padding-x: 2rem;
+    --bs-navbar-padding-y: 1rem;
+}
+
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 header {
@@ -53,7 +59,7 @@ nav {
 }
 
 h2 {
-    padding-bottom: 0;
+    padding-bottom: 20px;
 }
 
 h3 {
@@ -78,15 +84,14 @@ h3 {
 }
 
 .trip-block {
-    display: flex;
-    align-items: end;
     position: relative;
     padding: 15px;
     border: 2px #000000 solid;
     border-radius: 20px;
     height: 100px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     border-bottom-left-radius: 0;
+    background-size: cover;
     transition: box-shadow border-color 0.3s ease;
 }
 
@@ -96,8 +101,7 @@ h3 {
     box-shadow: 5px 5px 20px rgba(177, 177, 177, 0.726);
 }
 
-.eventBox {
-    display: flex;
+#eventBox {
     margin-top: 48px;
 }
 
@@ -105,11 +109,18 @@ h3 {
     display: flex;
     flex-grow: 1;
     gap: 10px;
+    margin-bottom: 40px;
 }
 
 .date-box {
     display: flex;
-    width: 300px;
+    min-width: 250px;
+
+}
+
+.day-activity-box {
+    display: block;
+    flex-grow: 1;
 }
 
 .info-box {
@@ -122,16 +133,21 @@ h3 {
     display: flex;
     align-items: start;
     justify-content: center;
-    width: 100px;
+    min-width: 100px;
 }
 
 .title-box {
     width: 200px;
 }
 
+.activity-box {
+    padding-bottom: 20px;
+    flex-grow: 1;
+}
+
 .activity-square {
-    width: 40%;
-    padding-top: 40%; /* Ensures the square's height equals its width */
+    width: 40px;
+    padding-top: 40px; /* Ensures the square's height equals its width */
     background-color: #555555;
     border-radius: 8px;
     position: relative;
@@ -146,10 +162,6 @@ h3 {
 
 .activity-square:focus {
     animation: shadowColorChange 2s infinite alternate;
-}
-
-#tripText {
-    
 }
 
 @keyframes shadowColorChange {
@@ -171,23 +183,38 @@ h3 {
 }
 
 .note-box {
-    max-width: 500px;
+    min-width: 300px;
 }
 
 .delete-box {
     display: flex;
     justify-content: end;
-    flex-grow: 1;
     padding-left: 20px;
 }
 
 #label {
     display: block;
-    padding: 1rem; /* Add padding */
+    padding-top: 20px;
 }
 
 #align-bottom {
     display: flex;
+    align-items: center;
+}
+
+#main-container {
+    min-height: 70vh;
+}
+
+#banner-after {
+    display: flex;
+    flex-wrap: nowap;
+    height: 80%;
+}
+
+#banner-before {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -210,9 +237,6 @@ form input {
     padding-right: 20px;
 }
 
-.trip-block {
-    background-size: cover;
-}
 
 .background{
     position: relative;
@@ -230,27 +254,132 @@ form input {
 
 }
 
+#tripText {
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+#trip-content {
+    padding-bottom: 80px;
+}
+
 @keyframes animate{
 
     0%,100%{
-        background-image: url("../../images/Banner/Golden-Gate-Bridge-San-Francisco.jpg.webp");
+        background-image: url("../img/Banner/Golden-Gate-Bridge-San-Francisco.jpg.webp");
         background-size: cover;
         background-position: center;
     }
     25%{
-        background-image: url("../../images/Banner/hawaii-beach.png.webp");
+        background-image: url("../img/Banner/hawaii-beach.png.webp");
         background-size: cover;
         background-position: center;
     }
     50%{
-        background-image: url("../../images/Banner/Snow-in-Colorado.png");
+        background-image: url("../img/Banner/Snow-in-Colorado.png");
         background-size: cover;
         background-position: center;
     }
     75%{
-        background-image: url("../../images/Banner/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_\(cropped\).jpg");
+        background-image: url("../img/Banner/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_\(cropped\).jpg");
         background-size: cover;
         background-position: center;
 
+    }
+}
+
+.event-banner {
+    height: 200px;
+    border-radius: 30px;
+    margin-bottom: 40px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.footer {
+    background-color: #cecece;
+    color: #6d6d6d;
+    padding-top: 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 15px;
+}
+
+.footer-section h2 {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.footer-bottom {
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    background-color: #919191;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+@media screen and (max-width: 992px) {
+    .day-box {
+        display: inline;
+
+    }
+    .date-box {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .day-box {
+        display: inline;
+        margin-bottom: 20px;
+    }
+    .date-box {
+        margin-bottom: 20px;
+    }
+
+    .activity-square {
+        width: 25px;
+        padding-top: 25px; /* Ensures the square's height equals its width */
+        border-radius: 4px;
+    }
+
+    .icon-box {
+        display: none;
+        min-width: 50px;
+        justify-content: start;
+    }
+
+    .info-box {
+        display: inline;
+    }
+
+    .activity-box {
+        padding-bottom: 0;
+    }
+
+    #banner-before {
+        display: inline;
+    }
+
+    .note-box {
+        min-width: none;
     }
 }

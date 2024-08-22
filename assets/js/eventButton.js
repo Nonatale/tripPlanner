@@ -34,8 +34,8 @@ function activityFormSubmit(event) {
 
         const activity = {
             title: title.value.trim(),
-            date: date.value.trim(),
-            time: time.value.trim(),
+            date: date.value,
+            time: time.value,
             place: place.value.trim(),
             note: note.value ? note.value.trim() : undefined,
             trip: localStorage.getItem("currTrip")
@@ -57,10 +57,34 @@ function activityFormSubmit(event) {
     }
 }
 
+function displayEventBanner() {
+    const pageContainer = document.querySelector("#main-container");
+    const currTrip = localStorage.getItem("currTrip");
+    const tripList = JSON.parse(localStorage.getItem("tripList"));
+    const tripIndex = getTripIndex(currTrip);
+
+    const banner = document.createElement("div");
+    banner.classList.add("event-banner");
+    banner.style.backgroundImage = tripList[tripIndex].imgUrl;
+    pageContainer.insertBefore(banner, pageContainer.firstChild);
+}
+
+function displayTripTitle() {
+    const pageContainer = document.querySelector("#banner-before");
+    const currTrip = localStorage.getItem("currTrip");
+
+    const title = document.createElement("h1");
+    title.textContent = currTrip;
+    pageContainer.insertBefore(title, pageContainer.firstChild);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const deleteButton = document.getElementById('deleteTripButton');
     const deleteModalElement = document.getElementById('deleteModal');
     const confirmDeleteButton = document.getElementById('confirmDelete');
+
+    displayEventBanner();
+    displayTripTitle();
   
      //to ensure that bootstrap modal is being used
      if (deleteButton && deleteModalElement && confirmDeleteButton) {
@@ -74,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
       // Add event listener to handle delete confirmation
       confirmDeleteButton.addEventListener('click', function () {
-        console.log('Item deleted');
+        //console.log('Item deleted');
         deleteModal.hide();
         deleteTrip();
         redirectPage("../../index.html");
@@ -91,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
 function deleteTrip() {
     const currTrip = localStorage.getItem("currTrip");
   
-
     const tripList = JSON.parse(localStorage.getItem("tripList")) || [];
     const tripIndex = getTripIndex(currTrip);
 
@@ -102,17 +125,12 @@ function deleteTrip() {
         // make sure local storage is updated to reflect new array
         localStorage.setItem("tripList", JSON.stringify(tripList));
 
-        //  current trip is removed from local storage
+        // current trip is removed from local storage
         localStorage.removeItem("currTrip");
     } else {
         console.error("Trip not found in tripList.");
     }
 }
-
-
-    
-  
-
 
 // Adds new activity to a trip and then sorts the events and trips
 function updateActivityList(activity) {
@@ -181,14 +199,28 @@ function displayActivities() {
     const tripList = JSON.parse(localStorage.getItem("tripList"));
     const tripIndex = getTripIndex(localStorage.getItem("currTrip"));
     const trip = tripList[tripIndex];
-    console.log(trip);
 
     const activities = trip.activity;
     eventBox.innerHTML = "";
+
+    let currDate, dayActivity;
+    
     activities.forEach((item) => {
-        const dayBox = document.createElement("section");
-        const dateBox = document.createElement("div");
-        const dayAndDate = document.createElement("h4");
+        if (!currDate || item.date != currDate) {
+            const dayBox = document.createElement("section");
+            const dateBox = document.createElement("div");
+            const dayAndDate = document.createElement("h4");
+            dayActivity = document.createElement("div");
+
+            eventBox.appendChild(dayBox).classList.add("day-box");
+            dayBox.appendChild(dateBox).classList.add("date-box");
+            dayBox.appendChild(dayActivity).classList.add("day-activity-box");
+            dateBox.appendChild(dayAndDate);
+            dayAndDate.append(`${getWeekday(item.date)}, ${formatDate(item.date)}`);
+
+            currDate = item.date;
+        }
+        
         const infoBox = document.createElement("div");
         const timeBox = document.createElement("div");
         const timeElem = document.createElement("h4");
@@ -201,35 +233,37 @@ function displayActivities() {
         const noteBox = document.createElement("div");
         const noteElem = document.createElement("p");
         const deleteBox = document.createElement("div");
+        const trashCan = document.createElement("span");
 
-
-
-
-        eventBox.appendChild(dayBox).classList.add("day-box");
-        eventBox.appendChild(dateBox).classList.add("date-box");
-        dayBox.appendChild(dayAndDate);
-        dayAndDate.append(`${item.date}`);
-        dayBox.appendChild(infoBox).classList.add("info-box");
+        dayActivity.appendChild(infoBox).classList.add("info-box");
         infoBox.appendChild(timeBox).classList.add("time-box");
         timeBox.appendChild(timeElem);
         timeElem.append(`${item.time}`);
         infoBox.appendChild(iconBox).classList.add("icon-box");
-        iconBox.appendChild(activitySquare).classList.add("activity-sqaure");
-        infoBox.appendChild(activityBox).classList.add("activityBox");
+        iconBox.appendChild(activitySquare).classList.add("activity-square");
+        infoBox.appendChild(activityBox).classList.add("activity-box");
         activityBox.appendChild(titleBox).classList.add("title-box");
         titleBox.appendChild(eventElem);
         titleBox.appendChild(locationElem);
         eventElem.append(`${item.title}`);
         locationElem.append(`${item.place}`);
         activityBox.appendChild(noteBox).classList.add("note-box");
-        noteBox.appendChild(note);
-        noteElem.append(`${item.note}`);
-        activityBox.appendChild(deleteBox).classList.add("delete-box");
-
+        noteBox.appendChild(noteElem);
+        noteElem.append(`${noNote(item.note)}`);
+        infoBox.appendChild(deleteBox).classList.add("delete-box");
+        deleteBox.appendChild(trashCan).classList.add("material-symbols-outlined");
+        trashCan.textContent = "delete";
 
 
     })
 
+}
+
+function noNote(note) {
+    if (!note) {
+        return "";
+    }
+    return note;
 }
 
 activityButton.addEventListener("click", activityFormClick);
