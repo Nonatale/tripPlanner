@@ -4,7 +4,7 @@ A web project about planning for events/trips
 
 ## Description
 
-tripPlanner is a website intended to help the busy traveller to stay organized when planning an upcoming vacation or event.  
+TrailCraft is a website intended to help the busy traveler stay organized when planning an upcoming vacation or event.  
 
 
 ## Installation
